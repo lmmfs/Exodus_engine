@@ -29,9 +29,9 @@ int main()
 	list[2] = a3;
 
 	for (int i = 0; i<3 ; i++){
-		cout << rod(v1, list[i], pi / 2) << std::endl;
-		cout << rod(v2, list[i], pi / 2) << std::endl;
-		cout << rod(v3, list[i], pi / 2) << std::endl;
+		cout << list[i].rod(v1, pi / 2) << std::endl;
+		cout << list[i].rod(v2, pi / 2) << std::endl;
+		cout << list[i].rod(v3, pi / 2) << std::endl;
 	}
 	
 }

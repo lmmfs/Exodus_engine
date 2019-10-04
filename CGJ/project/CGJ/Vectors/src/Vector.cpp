@@ -148,6 +148,14 @@ namespace exodus_engine {
 			float c = z - vector.z;
 			return sqrt(a * a + b * b + c * c);
 		}
+
+		vec3 vec3::rod(vec3 vector, float angle) {
+			float cos_ang = cos(angle);
+			float sin_ang = sin(angle);
+			vec3 rot = (cos_ang * vector).add((sin_ang * (*this).Cross(vector))).add((((*this) * (*this).Dot(vector)) * (1 - cos_ang)));
+			return rot;
+		}
+
 		std::ostream& operator<<(std::ostream& stream, const vec3& vector){
 			stream << "vec3: (" << vector.x << ", " << vector.y << ", " << vector.z << ")";
 			return stream;
@@ -158,6 +166,7 @@ namespace exodus_engine {
 			vector = vec3(tX, tY);
 			return is;
 		}
+
 
 		/******Vector4D******/
 

@@ -76,6 +76,7 @@ namespace exodus_engine {
 			float Magnitude() const;
 			vec3 Normalize() const;
 			float Lenght(const vec3& vector) const;
+			vec3 rod(vec3 vector, float angle);
 
 			friend std::ostream& operator<<(std::ostream& stream, const vec3& vector);
 			friend std::istream& operator>>(std::istream& os, vec3& vector);
