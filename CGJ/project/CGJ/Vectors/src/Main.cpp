@@ -4,13 +4,6 @@ using namespace std;
 using namespace exodus_engine;
 using namespace maths;
 
-vec3 rod(vec3 vector, vec3 axis, float angle) {
-	float cos_ang = cos(angle);
-	float sin_ang = sin(angle);
-	vec3 rot = (cos_ang * vector) .add( (sin_ang * axis.Cross(vector))).add(((axis * axis.Dot(vector)) * (1 - cos_ang)));
-	return rot;
-}
-
 int main()
 {
 	float pi = 3.14159265359;
@@ -28,10 +21,10 @@ int main()
 	list[1] = a2;
 	list[2] = a3;
 
-	for (int i = 0; i<3 ; i++){
-		cout << list[i].rod(v1, pi / 2) << std::endl;
-		cout << list[i].rod(v2, pi / 2) << std::endl;
-		cout << list[i].rod(v3, pi / 2) << std::endl;
+	for (int i = 0; i < 3; i++) {
+		cout << v1 << " sobre " << list[i] << v1.rodrigues(list[i], pi / 2) << std::endl;
+		cout << v2 << " sobre " << list[i] << v2.rodrigues(list[i], pi / 2) << std::endl;
+		cout << v3 << " sobre " << list[i] << v3.rodrigues(list[i], pi / 2) << std::endl;
 	}
 	
 }

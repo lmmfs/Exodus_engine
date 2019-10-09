@@ -22,17 +22,22 @@ namespace exodus_engine {
 			y -= vector.y;
 			return *this;
 		}
+		vec2& vec2::Multiply(float scalar){
+			x *= scalar;
+			y *= scalar;
+			return *this;
+		}
 		vec2& operator+(vec2& left, const vec2& right) {
 			return left.add(right);
 		}
 		vec2& operator-(vec2& left, const vec2& right) {
 			return left.subtrack(right);
 		}
-		vec2 operator*(vec2 vector, float value){
-			return vec2(vector.x * value, vector.y * value);
+		vec2& operator*(vec2 vector, float value){
+			return vector.Multiply(value);
 		}
-		vec2 operator*(float value , vec2 vector){
-			return vec2(vector.x * value, vector.y * value);
+		vec2& operator*(float value, vec2 vector) {
+			return vector.Multiply(value);
 		}
 		vec2& vec2::operator+=(const vec2& vector) {
 			return *this + vector;
@@ -78,6 +83,7 @@ namespace exodus_engine {
 		}
 
 		/******Vector3D*****/
+
 		vec3::vec3() : x(0), y(0), z(0){}
 		vec3::vec3(const float& scalar) : x(scalar), y(scalar), z(scalar) {}
 		vec3::vec3(const float& x, const float& y, const float& z) : x(x), y(y), z(z) {}
@@ -97,6 +103,12 @@ namespace exodus_engine {
 			y -= vector.y;
 			z += vector.z;
 			return *this;
+		}
+		vec3& vec3::Multiply(float scalar)
+		{
+			x *= scalar;
+			y *= scalar;
+			z *= scalar;
 			return *this;
 		}
 		vec3& operator+(vec3& left, const vec3& right) {
@@ -105,11 +117,11 @@ namespace exodus_engine {
 		vec3& operator-(vec3& left, const vec3& right) {
 			return left.subtrack(right);
 		}
-		vec3 operator*(vec3 vector, float value){
-			return vec3(vector.x * value, vector.y * value, vector.z * value);
+		vec3& operator*(vec3 vector, float value){
+			return vector.Multiply(value);
 		}
-		vec3 operator*(float value, vec3 vector){
-			return vec3(vector.x * value, vector.y * value, vector.z * value);
+		vec3& operator*(float value, vec3 vector){
+			return vector.Multiply(value);
 		}
 		vec3& vec3::operator+=(const vec3& vector) {
 			return *this + vector;
@@ -148,14 +160,12 @@ namespace exodus_engine {
 			float c = z - vector.z;
 			return sqrt(a * a + b * b + c * c);
 		}
-
-		vec3 vec3::rod(vec3 vector, float angle) {
+		vec3 vec3::rodrigues(vec3 axis, float angle) {
 			float cos_ang = cos(angle);
 			float sin_ang = sin(angle);
-			vec3 rot = (cos_ang * vector).add((sin_ang * (*this).Cross(vector))).add((((*this) * (*this).Dot(vector)) * (1 - cos_ang)));
+			vec3 rot = (cos_ang * (*this)) + (sin_ang * axis.Cross((*this))) + (axis * axis.Dot((*this)) * (1 - cos_ang));
 			return rot;
 		}
-
 		std::ostream& operator<<(std::ostream& stream, const vec3& vector){
 			stream << "vec3: (" << vector.x << ", " << vector.y << ", " << vector.z << ")";
 			return stream;
@@ -180,25 +190,25 @@ namespace exodus_engine {
 			this->x = scalar;
 			this->y = scalar;
 			this->z = scalar;
-			this->w = 1;
+			this->w = 0;
 		}
 		vec4::vec4(float x, float y, float z) {
 			this->x = x;
 			this->y = y;
 			this->z = z;
-			this->w = 1;
+			this->w = 0;
 		}
 		vec4::vec4(const vec3& vector) {
 			this->x = vector.x;
 			this->y = vector.y;
 			this->z = vector.z;
-			this->w = 1;
+			this->w = 0;
 		}
 		vec4::vec4(const vec2& vector) {
 			this->x = vector.x;
 			this->y = vector.y;
 			this->z = 0;
-			this->w = 1;
+			this->w = 0;
 		}
 		vec4& vec4::Add(const vec4& other){
 			x += other.x;
@@ -212,6 +222,12 @@ namespace exodus_engine {
 			z -= other.z;
 			return *this;
 		}
+		vec4& vec4::Multiply(float scalar){
+			x *= scalar;
+			y *= scalar;
+			z *= scalar;
+			return *this;
+		}
 		vec4 operator+(vec4 left, const vec4& right){
 			return left.Add(right);
 		}
@@ -219,10 +235,10 @@ namespace exodus_engine {
 			return left.Subtract(right);
 		}
 		vec4 operator*(vec4 vector, float value) {
-			return vec4(vector.x * value, vector.y * value, vector.z * value);
+			return vector.Multiply(value);
 		}
 		vec4 operator*(float value, vec4 vector) {
-			return vec4(vector.x * value, vector.y * value, vector.z * value);
+			return vector.Multiply(value);
 		}
 		vec4& vec4::operator+=(const vec4& vector){
 			return Add(vector);

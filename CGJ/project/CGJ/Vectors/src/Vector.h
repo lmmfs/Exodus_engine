@@ -20,11 +20,12 @@ namespace exodus_engine {
 
 			vec2& add(const vec2& vector);
 			vec2& subtrack(const vec2& vector);
+			vec2& Multiply(float scalar);
 
 			friend vec2& operator+(vec2& left, const vec2& right);
 			friend vec2& operator-(vec2& left, const vec2& right);
-			friend vec2 operator*(vec2 left, float value);
-			friend vec2 operator*(float value, vec2 left);
+			friend vec2& operator*(vec2 left, float value);
+			friend vec2& operator*(float value, vec2 left);
 
 			vec2& operator+=(const vec2& vector);
 			vec2& operator-=(const vec2& vector);
@@ -57,11 +58,12 @@ namespace exodus_engine {
 
 			vec3& add(const vec3& vector);
 			vec3& subtrack(const vec3& vector);
+			vec3& Multiply(float scalar);
 
 			friend vec3& operator+(vec3& left, const vec3& right);
 			friend vec3& operator-(vec3& left, const vec3& right);
-			friend vec3 operator*(vec3 left, float value);
-			friend vec3 operator*(float value, vec3 left);
+			friend vec3& operator*(vec3 left, float scalar);
+			friend vec3& operator*(float scalar, vec3 left);
 
 			vec3& operator+=(const vec3& vector);
 			vec3& operator-=(const vec3& vector);
@@ -72,11 +74,11 @@ namespace exodus_engine {
 			bool operator!=(const vec3& vector) const;
 
 			vec3 Cross(const vec3& vector);
+			vec3 Normalize() const;
 			float Dot(const vec3& vector);
 			float Magnitude() const;
-			vec3 Normalize() const;
 			float Lenght(const vec3& vector) const;
-			vec3 rod(vec3 vector, float angle);
+			vec3 rodrigues(vec3 axis, float angle);
 
 			friend std::ostream& operator<<(std::ostream& stream, const vec3& vector);
 			friend std::istream& operator>>(std::istream& os, vec3& vector);
@@ -93,6 +95,7 @@ namespace exodus_engine {
 
 			vec4& Add(const vec4& vector);
 			vec4& Subtract(const vec4& vector);
+			vec4& Multiply(float scalar);
 
 			friend vec4 operator+(vec4 left, const vec4& right);
 			friend vec4 operator-(vec4 left, const vec4& right);
