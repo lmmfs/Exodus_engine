@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="inc\BufferObject.h" />
+    <ClInclude Include="inc\Camera\Camera.h" />
+    <ClInclude Include="inc\Drawable.h" />
+    <ClInclude Include="inc\ImageCreator.h" />
+    <ClInclude Include="inc\input\KeyBuffer.h" />
+    <ClInclude Include="inc\maths\Matrix.h" />
+    <ClInclude Include="inc\maths\Quaternion.h" />
+    <ClInclude Include="inc\mesh\Mesh.h" />
+    <ClInclude Include="inc\physics\Collider.h" />
+    <ClInclude Include="inc\physics\CollisionListener.h" />
+    <ClInclude Include="inc\physics\Physics.h" />
+    <ClInclude Include="inc\physics\RigidBody.h" />
+    <ClInclude Include="inc\scene\Animator.h" />
+    <ClInclude Include="inc\scene\SceneGraph.h" />
+    <ClInclude Include="inc\scene\SceneNode.h" />
+    <ClInclude Include="inc\scene\SceneNodeComponent.h" />
+    <ClInclude Include="inc\shader\ShaderProgram.h" />
+    <ClInclude Include="inc\ImageLoader.h" />
+    <ClInclude Include="inc\PerlinNoise.h" />
+    <ClInclude Include="inc\skybox\CubeMap.h" />
+    <ClInclude Include="inc\textures\PerlinTexture.h" />
+    <ClInclude Include="inc\textures\Texture.h" />
+    <ClInclude Include="inc\textures\Material.h" />
+    <ClInclude Include="inc\Updatable.h" />
+    <ClInclude Include="inc\Utils.h" />
+    <ClInclude Include="inc\maths\Vector.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\camera\Camera.cpp" />
+    <ClCompile Include="src\input\KeyBuffer.cpp" />
+    <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\maths\Matrix.cpp" />
+    <ClCompile Include="src\maths\Quaternion.cpp" />
+    <ClCompile Include="src\maths\Vector.cpp" />
+    <ClCompile Include="src\mesh\Mesh.cpp" />
+    <ClCompile Include="src\physics\Collider.cpp" />
+    <ClCompile Include="src\physics\Physics.cpp" />
+    <ClCompile Include="src\physics\RigidBody.cpp" />
+    <ClCompile Include="src\scene\Animator.cpp" />
+    <ClCompile Include="src\scene\SceneGraph.cpp" />
+    <ClCompile Include="src\scene\SceneNode.cpp" />
+    <ClCompile Include="src\scene\SceneNodeComponent.cpp" />
+    <ClCompile Include="src\shader\ShaderProgram.cpp" />
+    <ClCompile Include="src\skybox\CubeMap.cpp" />
+    <ClCompile Include="src\texture\Material.cpp" />
+    <ClCompile Include="src\texture\PerlinTexture.cpp" />
+    <ClCompile Include="src\texture\Texture.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="fragment_shader.glsl" />
+    <None Include="skyboxFS.glsl" />
+    <None Include="skyboxVS.glsl" />
+    <None Include="vertex_shader.glsl" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{3073b6ba-d9a6-4e56-8085-def5e513138b}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>CGJ_Engine</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)bin\$(Configuration)\$(Platform)</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)bin\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)bin\$(Configuration)\$(Platform)\</IntDir>
+    <CodeAnalysisRuleSet>NativeRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)bin\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)bin\$(Configuration)\$(Platform)\</IntDir>
+    <CodeAnalysisRuleSet>NativeRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(SolutionDir)..\..\dependencies\glew-2.1.0\include;$(SolutionDir)..\..\dependencies\glfw-3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);glew32.lib;glfw3.dll.lib;opengl32.dll</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\dependencies\glfw-3.3\lib-vc2019;$(SolutionDir)..\dependencies\glew-2.1.0\lib\Release\x64;${SolutionDir}\..\..\dependencies\glew-2.1.0\lib\Release\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(SolutionDir)..\..\dependencies\glfw-3.3\lib-vc2019\glfw3.dll $(OutputPath)
+copy $(SolutionDir)..\..\dependencies\glew-2.1.0\bin\Release\$(PlatformTargetAsMSBuildArchitecture)\glew32.dll $(OutputPath)
+
+copy $(SolutionDir)*.glsl $(OutputPath)</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(SolutionDir)..\..\dependencies\glew-2.1.0\include;$(SolutionDir)..\..\dependencies\glfw-3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <EnablePREfast>true</EnablePREfast>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ObjectFileName>$(SolutionDir)lib\</ObjectFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\dependencies\glfw-3.3\lib-vc2019;$(SolutionDir)..\..\dependencies\glew-2.1.0\lib\Release\x64;$(SolutionDir)lib\$($%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;glew32.lib;glfw3dll.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ProjectReference />
+    <PostBuildEvent>
+      <Command>copy $(SolutionDir)..\..\dependencies\glfw-3.3\lib-vc2019\glfw3.dll $(OutputPath)
+copy $(SolutionDir)..\..\dependencies\glew-2.1.0\bin\Release\$(PlatformTargetAsMSBuildArchitecture)\glew32.dll $(OutputPath)
+
+copy $(SolutionDir)*.glsl $(OutputPath)</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(SolutionDir)..\..\dependencies\glew-2.1.0\include;$(SolutionDir)..\..\dependencies\glfw-3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <Profile>true</Profile>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(SolutionDir)..\..\dependencies\glfw-3.3\lib-vc2019\glfw3.dll $(OutputPath)
+copy $(SolutionDir)..\..\dependencies\glew-2.1.0\bin\Release\$(PlatformTargetAsMSBuildArchitecture)\glew32.dll $(OutputPath)
+
+copy $(SolutionDir)*.glsl $(OutputPath)</Command>
+    </PostBuildEvent>
+    <BuildLog>
+      <Path />
+    </BuildLog>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(SolutionDir)..\..\dependencies\glew-2.1.0\include;$(SolutionDir)..\..\dependencies\glfw-3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <EnablePREfast>true</EnablePREfast>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ObjectFileName>$(SolutionDir)lib\</ObjectFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\dependencies\glfw-3.3\lib-vc2019;$(SolutionDir)..\..\dependencies\glew-2.1.0\lib\Release\x64;$(SolutionDir)lib\$($%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;glew32.lib;glfw3dll.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <Profile>true</Profile>
+    </Link>
+    <ProjectReference />
+    <PostBuildEvent>
+      <Command>copy $(SolutionDir)..\..\dependencies\glfw-3.3\lib-vc2019\glfw3.dll $(OutputPath)
+copy $(SolutionDir)..\..\dependencies\glew-2.1.0\bin\Release\$(PlatformTargetAsMSBuildArchitecture)\glew32.dll $(OutputPath)
+
+copy $(SolutionDir)*.glsl $(OutputPath)</Command>
+    </PostBuildEvent>
+    <BuildLog>
+      <Path />
+    </BuildLog>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
